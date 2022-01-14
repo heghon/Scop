@@ -6,11 +6,11 @@
 #    By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 16:17:22 by bmenant           #+#    #+#              #
-#    Updated: 2022/01/11 16:18:13 by bmenant          ###   ########.fr        #
+#    Updated: 2022/01/14 21:26:49 by bmenant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =			main.cpp 
+SRC =			main.cpp
 
 GREEN =			\033[0;32m
 BLUE =			\033[1;34m
@@ -29,8 +29,9 @@ OBJ =			$(SRC:.cpp=.o)
 SRCS =			$(addprefix $(SRC_FILE),$(SRC))
 OBJS =			$(addprefix $(OBJ_FILE),$(OBJ))
 
-FLAGS =			-Wall -Wextra -Werror
+WFLAGS =		-Wall -Wextra -Werror
 STDFLAGS =		-std=c++11
+
 
 RM =			/bin/rm -f
 
@@ -41,11 +42,11 @@ all : $(NAME)
 
 $(OBJ_FILE)%.o : $(SRC_FILE)%.cpp
 	@mkdir $(OBJ_FILE) 2> /dev/null || true
-	@$(CXX) $(FLAGS) $(STDFLAGS) -o $@ -c $<
+	@$(CXX) -c $(WFLAGS) -o $@ $<
 	@echo "$@\r				$(OK)"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(OBJS) -o $(NAME)
+	@$(CXX) $(WFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BLUE)-$(NAME)-\r				$(OK)"
 
 clean :
