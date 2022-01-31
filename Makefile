@@ -6,11 +6,15 @@
 #    By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 16:17:22 by bmenant           #+#    #+#              #
-#    Updated: 2022/01/14 21:26:49 by bmenant          ###   ########.fr        #
+#    Updated: 2022/01/31 15:13:20 by bmenant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =			main.cpp
+SRC =			main.cpp \
+				window.cpp \
+				glad.cpp \
+				input.cpp \
+				shaders.cpp
 
 GREEN =			\033[0;32m
 BLUE =			\033[1;34m
@@ -32,6 +36,8 @@ OBJS =			$(addprefix $(OBJ_FILE),$(OBJ))
 WFLAGS =		-Wall -Wextra -Werror
 STDFLAGS =		-std=c++11
 
+FRMWRK =		-framework OpenGL
+LIBFLAGS =		GLFW/lib/libglfw.3.3.dylib glad/lib/libglad.a
 
 RM =			/bin/rm -f
 
@@ -46,7 +52,7 @@ $(OBJ_FILE)%.o : $(SRC_FILE)%.cpp
 	@echo "$@\r				$(OK)"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(WFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(OBJS) -o $(NAME) $(FRMWRK) $(LIBFLAGS)
 	@echo "$(BLUE)-$(NAME)-\r				$(OK)"
 
 clean :
@@ -58,3 +64,6 @@ fclean : clean
 	@echo "$(BLUE)-fclean-\r				$(OK)"
 
 re	: fclean all
+
+test : all 
+	./$(NAME)
