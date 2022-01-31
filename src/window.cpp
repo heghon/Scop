@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:46:07 by bmenant           #+#    #+#             */
-/*   Updated: 2022/01/31 17:46:25 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/01/31 17:57:03 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void renderLoop(GLFWwindow* window, unsigned int shaderProgram, unsigned int VAO
 {
     while(!glfwWindowShouldClose(window))
     {
-        processInput(window);
-
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        processInput(window);
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
