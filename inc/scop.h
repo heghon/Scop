@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:20:26 by bmenant           #+#    #+#             */
-/*   Updated: 2022/01/31 17:45:48 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/01 16:35:25 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include "../glad/include/glad/glad.h"
 #include "../GLFW/include/GLFW/glfw3.h"
+#include "Shader.h"
 
 void glfwStart();
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 GLFWwindow* makeWindow(int width, int height);
-void renderLoop(GLFWwindow* window, unsigned int shaderProgram, unsigned int VAO);
+void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO);
 
 int gladStart();
 

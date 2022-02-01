@@ -6,7 +6,7 @@
 #    By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 16:17:22 by bmenant           #+#    #+#              #
-#    Updated: 2022/01/31 15:13:20 by bmenant          ###   ########.fr        #
+#    Updated: 2022/02/01 16:44:38 by bmenant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ SRC =			main.cpp \
 				window.cpp \
 				glad.cpp \
 				input.cpp \
-				shaders.cpp
+				Shader.cpp \
+				# shaders.cpp
 
 GREEN =			\033[0;32m
 BLUE =			\033[1;34m
