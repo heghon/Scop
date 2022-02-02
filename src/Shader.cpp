@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:52:47 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/01 17:21:45 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/02 17:27:15 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     // delete the shaders as they're linked into our program now and no longer necessary
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+}
+
+unsigned int Shader::returnID()
+{
+    return ID;
 }
 
 // activate the shader

@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:50:00 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/01 16:40:49 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/02 17:26:25 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 public:
 
     Shader(const char* vertexPath, const char* fragmentPath);
+    unsigned int returnID();
     void use();
     void setBool(const std::string &name, bool value) const;
     void setInt(const std::string &name, int value) const;
