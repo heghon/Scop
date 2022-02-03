@@ -6,7 +6,7 @@
 #    By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 16:17:22 by bmenant           #+#    #+#              #
-#    Updated: 2022/02/03 12:19:40 by bmenant          ###   ########.fr        #
+#    Updated: 2022/02/03 17:36:58 by bmenant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC =			main.cpp \
 				input.cpp \
 				Shader.cpp \
 				Vektor.cpp \
+				vektorOperations.cpp \
 				# shaders.cpp
 
 GREEN =			\033[0;32m

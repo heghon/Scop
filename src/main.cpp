@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/03 12:29:00 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/03 18:11:58 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,28 @@ float mixValue = 0.2f;
 
 int main()
 {
-    Vektor vec1 = Vektor(1, 1, 1, 1);
-    vec1.displayVektor();
+    Vektor vec1 = Vektor(0, 2, 1, 1);
+    Vektor vec2 = Vektor(-3, 0, 0, 1);
+    vec1.displayVektor("vec1");
+    vec1.displayLength("vec1");
+    vec1 = scaleVektor(vec1, '*', 2);
+    vec1.displayVektor("vec1");
+    vec1.displayLength("vec1");
+    vec2.displayVektor("vec2");
+    vec2.displayLength("vec2");
+    vec2 = negateVektor(vec2);
+    vec2.displayVektor("vec2");
+    vec2.displayLength("vec2");
+    Vektor vec3 = combineVektor(vec1, vec2, '-');
+    vec3.displayVektor("vec3");
+    vec3.displayLength("vec3");
+    cout << "vec1 . vec2 = " << dotProduct(vec1, vec2) << endl;
+    cout << "radangle(vec1, vec2) = " << radAngle(vec1, vec2) << endl;
+    cout << "degAngle(vec1, vec2) = " << degAngle(vec1, vec2) << endl;
+    Vektor vec4 = crossProduct(vec1, vec3);
+    vec4.displayVektor("vec4");
+    vec4.displayLength("vec4");
+
 
     // glfwStart();
 

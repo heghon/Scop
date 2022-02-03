@@ -6,12 +6,14 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:10:28 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/03 12:20:17 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/03 17:46:28 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEKTOR_H
 #define VEKTOR_H
+
+#include <string>
 
 class Vektor
 {
@@ -21,6 +23,7 @@ private:
     float Y;
     float Z;
     float W;
+    float length;
 
 public:
 
@@ -29,7 +32,14 @@ public:
     float getY();
     float getZ();
     float getW();
-    void displayVektor();
+    float getLength();
+    void setX(float newValue);
+    void setY(float newValue);
+    void setZ(float newValue);
+    void setW(float newValue);
+    void setLength();
+    void displayVektor(std::string name);
+    void displayLength(std::string name);
 };
   
 #endif
