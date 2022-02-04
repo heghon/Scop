@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 22:06:48 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 22:18:23 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ Matrix Matrix::substraction(Matrix const& matrix) const
 
 Matrix Matrix::multiplication(Matrix const& matrix) const
 {
-    Matrix finalMat(row, column);
+    Matrix finalMat(row, matrix.column);
 
     if (column != matrix.row)
     {
