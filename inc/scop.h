@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:20:26 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/03 18:09:31 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 15:09:01 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "../GLFW/include/GLFW/glfw3.h"
 #include "Shader.h"
 #include "Vektor.h"
+#include "Matrix.h"
 
 void glfwStart();
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -39,6 +40,11 @@ float dotProduct(Vektor vek1, Vektor vek2);
 float radAngle(Vektor vek1, Vektor vek2);
 float degAngle(Vektor vek1, Vektor vek2);
 Vektor crossProduct(Vektor vek1, Vektor vek2);
+
+Matrix matrixAddition(Matrix mat1, Matrix mat2, int finalRow, int finalCol);
+Matrix matrixSubtraction(Matrix mat1, Matrix mat2, int finalRow, int finalCol);
+Matrix matrixScaling(Matrix mat, float scale);
+Matrix matrixMultiplication(Matrix mat1, Matrix mat2);
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000
