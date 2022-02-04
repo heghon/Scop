@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:20:26 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 15:09:01 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 22:04:41 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,17 @@ unsigned int shaderProgramLoader(unsigned int vertexShader, unsigned int fragmen
 
 Vektor scaleVektor(Vektor vek, char scaleOp, float scaleNbr);
 Vektor negateVektor(Vektor vek);
-Vektor combineVektor(Vektor vek1, Vektor vek2, char ope);
 float dotProduct(Vektor vek1, Vektor vek2);
 float radAngle(Vektor vek1, Vektor vek2);
 float degAngle(Vektor vek1, Vektor vek2);
 Vektor crossProduct(Vektor vek1, Vektor vek2);
+Vektor operator+(Vektor const& vek1, Vektor const& vek2);
+Vektor operator-(Vektor const& vek1, Vektor const& vek2);
 
-Matrix matrixAddition(Matrix mat1, Matrix mat2, int finalRow, int finalCol);
-Matrix matrixSubtraction(Matrix mat1, Matrix mat2, int finalRow, int finalCol);
 Matrix matrixScaling(Matrix mat, float scale);
-Matrix matrixMultiplication(Matrix mat1, Matrix mat2);
+Matrix operator+(Matrix const& mat1, Matrix const& mat2);
+Matrix operator-(Matrix const& mat1, Matrix const& mat2);
+Matrix operator*(Matrix const& mat1, Matrix const& mat2);
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 1000

@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:25:41 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/03 18:10:27 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 21:09:20 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,6 @@ Vektor negateVektor(Vektor vek)
     vek.setY(-vek.getY());
     vek.setZ(-vek.getZ());
     return vek;
-}
-
-Vektor combineVektor(Vektor vek1, Vektor vek2, char ope)
-{
-    if (ope == '+')
-    {
-        Vektor finalVek(vek1.getX() + vek2.getX(), vek1.getY() + vek2.getY(), vek1.getZ() + vek2.getZ(), 1);
-        return finalVek;
-    }
-    else if (ope == '-')
-    {
-        Vektor finalVek(vek1.getX() - vek2.getX(), vek1.getY() - vek2.getY(), vek1.getZ() - vek2.getZ(), 1);
-        return finalVek;
-    }
-    else
-        cout << "Vektor combining failed, please look at the function call." << endl;
-    Vektor nullVek(0, 0, 0, 0);
-    return (nullVek);
 }
 
 float dotProduct(Vektor vek1, Vektor vek2)

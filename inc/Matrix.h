@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:34:51 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 15:24:04 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 22:01:37 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ public:
     void setMatrixElement(std::string operation, int row, int col, float value);
     void displayMatrix(std::string name);
     void identification();
+    Matrix addition(Matrix const& mat) const;
+    Matrix substraction(Matrix const& mat) const;
+    Matrix multiplication(Matrix const& matrix) const;
 };
   
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:10:28 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/03 17:46:28 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 21:17:42 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
 
 public:
 
+    Vektor();
     Vektor(float x, float y, float z, float w);
     float getX();
     float getY();
@@ -40,6 +41,10 @@ public:
     void setLength();
     void displayVektor(std::string name);
     void displayLength(std::string name);
+    Vektor addition(Vektor const& vek) const;
+    Vektor subtraction(Vektor const& vek) const;
+    void operator+=(Vektor const& vek);
+    void operator-=(Vektor const& vek);
 };
   
 #endif

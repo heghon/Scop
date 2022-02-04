@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 15:26:14 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 22:06:48 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,107 @@ void Matrix::identification()
             {
                 if (i == j)
                     mat[i][j] = 1.0f;
+                else
+                    mat[i][j] = 0.0f;
             }
         }
     }
+}
+
+Matrix Matrix::addition(Matrix const& matrix) const
+{
+    Matrix finalMat(row, column);
+    
+    if (row != matrix.row || column != matrix.column)
+    {
+        cout << "You're trying an addition between two different matrixes (row or column)." << endl
+            << "I can't make that operation, please look at the function call." << endl;
+        exit(0);
+    }
+    else
+    {
+        for (int i = 0; i < finalMat.getRow(); i++)
+        {
+            for (int j = 0; j < finalMat.getColumn(); j++)
+            {
+                finalMat.setMatrixElement("addition", i, j, mat[i][j]);
+                finalMat.setMatrixElement("addition", i, j, matrix.mat[i][j]);
+            }
+        }
+    }
+    return finalMat;
+}
+
+Matrix Matrix::substraction(Matrix const& matrix) const
+{
+    Matrix finalMat(row, column);
+    
+    if (row != matrix.row || column != matrix.column)
+    {
+        cout << "You're trying an subtraction between two different matrixes (row or column)." << endl
+            << "I can't make that operation, please look at the function call." << endl;
+        exit(0);
+    }
+    else
+    {
+        for (int i = 0; i < finalMat.getRow(); i++)
+        {
+            for (int j = 0; j < finalMat.getColumn(); j++)
+            {
+                finalMat.setMatrixElement("addition", i, j, mat[i][j]);
+                finalMat.setMatrixElement("subtraction", i, j, matrix.mat[i][j]);
+            }
+        }
+    }
+    return finalMat;
+}
+
+Matrix Matrix::multiplication(Matrix const& matrix) const
+{
+    Matrix finalMat(row, column);
+
+    if (column != matrix.row)
+    {
+        cout << "You're trying a multiplication between two uncompatible matrixes." << endl
+            << "I can't make that operation, please look at the function call." << endl;
+        exit(0);
+    }
+    else 
+    {
+        for (int i = 0; i < finalMat.getRow(); i++)
+        {
+            for (int j = 0; j < finalMat.getColumn(); j++)
+            {
+                float element = 0.0;
+
+                for (int k = 0; k < column; k++)
+                {
+                    element += mat[i][k] * matrix.mat[k][j];
+                }
+                finalMat.setMatrixElement("set", i, j, element);
+            }
+        }
+    }
+    return finalMat;
+}
+
+Matrix operator+(Matrix const& mat1, Matrix const& mat2)
+{
+    Matrix result = mat1.addition(mat2);
+
+    return result;
+}
+
+Matrix operator-(Matrix const& mat1, Matrix const& mat2)
+{
+    Matrix result = mat1.substraction(mat2);
+
+    return result;
+}
+
+Matrix operator*(Matrix const& mat1, Matrix const& mat2)
+{
+    Matrix result = mat1.multiplication(mat2);
+
+    return result;
 }

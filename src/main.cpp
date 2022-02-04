@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 15:27:14 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/04 22:06:27 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,12 @@ int main()
     mat2.setMatrixElement("set", 2, 1, 4);
     mat2.setMatrixElement("set", 2, 2, 2);
     mat2.displayMatrix("mat2");
-    Matrix mat3(6, 6);
-    mat3.identification();
+    Matrix mat3 = mat1 - mat2;
+    // mat3.identification();
     mat3.displayMatrix("mat3");
     Matrix mat4(3, 3);
-    mat4 = matrixMultiplication(mat1, mat2);
+    Matrix mat5(4, 4);
+    mat4 = mat1 * mat5;
     mat4.displayMatrix("mat4");
 
     // Vektor vec1 = Vektor(0, 2, 1, 1);
@@ -69,7 +70,8 @@ int main()
     // vec2 = negateVektor(vec2);
     // vec2.displayVektor("vec2");
     // vec2.displayLength("vec2");
-    // Vektor vec3 = combineVektor(vec1, vec2, '-');
+    // Vektor vec3 = vec2 - vec1;
+    // vec3 += vec2;
     // vec3.displayVektor("vec3");
     // vec3.displayLength("vec3");
     // cout << "vec1 . vec2 = " << dotProduct(vec1, vec2) << endl;
