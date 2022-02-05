@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/04 22:17:35 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/05 13:33:53 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,44 +24,44 @@ float mixValue = 0.2f;
 
 int main()
 {
-    Matrix mat1(3, 3);
-    mat1.setMatrixElement("set", 0, 0, 4);
-    mat1.setMatrixElement("set", 0, 1, 2);
-    mat1.setMatrixElement("set", 0, 2, 0);
-    mat1.setMatrixElement("set", 1, 0, 0);
-    mat1.setMatrixElement("set", 1, 1, 8);
-    mat1.setMatrixElement("set", 1, 2, 1);
-    mat1.setMatrixElement("set", 2, 0, 0);
-    mat1.setMatrixElement("set", 2, 1, 1);
-    mat1.setMatrixElement("set", 2, 2, 0);
-    // mat1 = matrixScaling(mat1, 0.5);
-    mat1.displayMatrix("mat1");
-    Matrix mat2(3, 3);
-    mat2.setMatrixElement("set", 0, 0, 4);
-    mat2.setMatrixElement("set", 0, 1, 2);
-    mat2.setMatrixElement("set", 0, 2, 1);
-    mat2.setMatrixElement("set", 1, 0, 2);
-    mat2.setMatrixElement("set", 1, 1, 0);
-    mat2.setMatrixElement("set", 1, 2, 4);
-    mat2.setMatrixElement("set", 2, 0, 9);
-    mat2.setMatrixElement("set", 2, 1, 4);
-    mat2.setMatrixElement("set", 2, 2, 2);
-    mat2.displayMatrix("mat2");
-    // Matrix mat3 = mat1 - mat2;
-    Matrix mat3(4, 4);
-    mat3.identification();
-    mat3.displayMatrix("mat3");
-    Matrix mat5(4, 1);
-    mat5.setMatrixElement("set", 0, 0, 1);
-    mat5.setMatrixElement("set", 1, 0, 2);
-    mat5.setMatrixElement("set", 2, 0, 3);
-    mat5.setMatrixElement("set", 3, 0, 4);
-    mat5.displayMatrix("mat5");
-    Matrix mat6 = mat3 * mat5;
-    mat6.displayMatrix("mat6");
-    Matrix mat4(3, 3);
-    mat4 = mat1 * mat2;
-    mat4.displayMatrix("mat4");
+
+    
+
+    // Matrix mat1(3, 3);
+    // mat1.setMatrixElement("set", 0, 0, 4);
+    // mat1.setMatrixElement("set", 0, 1, 2);
+    // mat1.setMatrixElement("set", 0, 2, 0);
+    // mat1.setMatrixElement("set", 1, 0, 0);
+    // mat1.setMatrixElement("set", 1, 1, 8);
+    // mat1.setMatrixElement("set", 1, 2, 1);
+    // mat1.setMatrixElement("set", 2, 0, 0);
+    // mat1.setMatrixElement("set", 2, 1, 1);
+    // mat1.setMatrixElement("set", 2, 2, 0);
+    // // mat1 = matrixScaling(mat1, 0.5);
+    // mat1.displayMatrix("mat1");
+    // Matrix mat2(3, 3);
+    // mat2.setMatrixElement("set", 0, 0, 4);
+    // mat2.setMatrixElement("set", 0, 1, 2);
+    // mat2.setMatrixElement("set", 0, 2, 1);
+    // mat2.setMatrixElement("set", 1, 0, 2);
+    // mat2.setMatrixElement("set", 1, 1, 0);
+    // mat2.setMatrixElement("set", 1, 2, 4);
+    // mat2.setMatrixElement("set", 2, 0, 9);
+    // mat2.setMatrixElement("set", 2, 1, 4);
+    // mat2.setMatrixElement("set", 2, 2, 2);
+    // mat2.displayMatrix("mat2");
+    // // Matrix mat3 = mat1 - mat2;
+    // Matrix mat3(4, 4);
+    // mat3.identification();
+    // mat3.displayMatrix("mat3");
+    // Vektor vek(1, 2, 3, 4);
+    // Matrix mat5(vek);
+    // mat5.displayMatrix("mat5");
+    // Matrix mat6 = mat3 * mat5;
+    // mat6.displayMatrix("mat6");
+    // Matrix mat4(3, 3);
+    // mat4 = mat1 * mat2;
+    // mat4.displayMatrix("mat4");
 
     // Vektor vec1 = Vektor(0, 2, 1, 1);
     // Vektor vec2 = Vektor(-3, 0, 0, 1);
