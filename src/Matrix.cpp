@@ -6,11 +6,11 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 14:01:09 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/05 15:32:26 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Matrix.h"
+#include "../inc/scop.h"
 #include <iostream>
 #include <cmath>
 
@@ -152,7 +152,7 @@ void Matrix::Rotatification(char rot, float angle)
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
-    angle /= (180 / M_PI);
+    angle *= (M_PI / 180);
     if (rot == 'X')
     {
         mat[1][1] = cos(angle);

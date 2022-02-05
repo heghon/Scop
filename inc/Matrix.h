@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:34:51 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 13:57:31 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/05 15:30:20 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <vector>
-#include "../inc/Vektor.h"
+
+class Vektor;
 
 class Matrix
 {
