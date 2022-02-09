@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 15:32:26 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/09 20:04:46 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,6 +252,28 @@ Matrix Matrix::multiplication(Matrix const& matrix) const
     }
     return finalMat;
 }
+
+GLfloat* Matrix::toArray()
+{
+    if (row != 4 || column != 4)
+    {
+        cout << "You're trying to make an array with a matrix that is not 4 x 4." << endl
+            << "I can't make that operation, please look at the function call." << endl;
+        exit(0);
+    }
+    static GLfloat result[] = {
+        getMatrixElement(0, 0), getMatrixElement(0, 1), getMatrixElement(0, 2), getMatrixElement(0, 3),
+        getMatrixElement(1, 0), getMatrixElement(1 ,1), getMatrixElement(1, 2), getMatrixElement(1, 3),
+        getMatrixElement(2, 0), getMatrixElement(2, 1), getMatrixElement(2, 2), getMatrixElement(2, 3),
+        getMatrixElement(3, 0), getMatrixElement(3, 1), getMatrixElement(3, 2), getMatrixElement(3, 3)
+    };
+
+    return result;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  END OF THE CLASS FUNCTIONS
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Matrix operator+(Matrix const& mat1, Matrix const& mat2)
 {

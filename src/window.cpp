@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:46:07 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/02 18:37:31 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/09 20:59:05 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,31 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO)
 
         // glUseProgram(shaderProgram);
 
-        // float timeValue = glfwGetTime();
+        float timeValue = glfwGetTime();
         // float greenValue = sin(timeValue) / 2.0f + 0.5f;
         // int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
         // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        // cout << "time value = " << timeValue << endl;
+        
+
+        Matrix rotaMat(4, 4);
+        rotaMat.identification();
+        rotaMat.Rotatification('Z', sin(timeValue));
+        rotaMat.displayMatrix("rotamat");
+        Matrix translaMat(4, 4);
+        translaMat.identification();
+        translaMat.translatification(0.5f, -0.5f, 0.0f);
+
+        Matrix transfoMat = rotaMat * translaMat;
+
+        ourShader.use();
 
         // set the texture mix value in the shader
         ourShader.setFloat("mixValue", mixValue);
 
-        ourShader.use();
+        // transform matrix handling here
+        unsigned int transformLoc = glGetUniformLocation(ourShader.returnID(), "transform");
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, rotaMat.toArray());
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

@@ -6,13 +6,14 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:34:51 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 15:30:20 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/09 20:07:47 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATRIX_H
 #define MATRIX_H
 
+#include "../glad/include/glad/glad.h"
 #include <string>
 #include <vector>
 
@@ -42,6 +43,7 @@ public:
     Matrix addition(Matrix const& mat) const;
     Matrix substraction(Matrix const& mat) const;
     Matrix multiplication(Matrix const& matrix) const;
+    GLfloat* toArray();
 };
   
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 16:29:27 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/09 20:47:51 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ float mixValue = 0.2f;
 
 int main()
 {
-    Matrix transfoMat(4, 4);
-    transfoMat.identification();
-    transfoMat.Rotatification('Z', 90);
-    transfoMat.scalification(0.5, 0.5, 0.5);
-    transfoMat.displayMatrix("transfoMat");
-
     glfwStart();
+
+    // Matrix rotaMat(4, 4);
+    // rotaMat.identification();
+    // rotaMat.Rotatification('Z', (float)((int)glfwGetTime() % 360));
+
+    // Matrix translaMat(4, 4);
+    // translaMat.identification();
+    // translaMat.translatification(0.5f, -0.5f, 0.0f);
+
+    // Matrix transfoMat = rotaMat * translaMat;
+    // transfoMat.displayMatrix("transfoMat");
 
     GLFWwindow* window = makeWindow(SCREEN_WIDTH,SCREEN_HEIGHT);
     if (window == NULL || gladStart() == -1)
@@ -154,8 +159,6 @@ int main()
     glUniform1i(glGetUniformLocation(ourShader.returnID(), "texture1"), 0); // set it manually
     ourShader.setInt("texture2", 1); // or with shader class
 
-    // transform matrix handling here
-    unsigned int transformLoc = glGetUniformLocation(ourShader.returnID(), "transform");
 
     renderLoop(window, ourShader, VAO);
     
