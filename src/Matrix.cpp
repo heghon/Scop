@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/09 20:04:46 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:36:37 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void Matrix::translatification(float tX, float tY, float tZ)
     mat[2][3] = tZ;
 }
 
-void Matrix::Rotatification(char rot, float angle)
+void Matrix::rotatification(char rot, float angle)
 {
     if (row != 4 || column != 4)
     {
@@ -262,10 +262,10 @@ GLfloat* Matrix::toArray()
         exit(0);
     }
     static GLfloat result[] = {
-        getMatrixElement(0, 0), getMatrixElement(0, 1), getMatrixElement(0, 2), getMatrixElement(0, 3),
-        getMatrixElement(1, 0), getMatrixElement(1 ,1), getMatrixElement(1, 2), getMatrixElement(1, 3),
-        getMatrixElement(2, 0), getMatrixElement(2, 1), getMatrixElement(2, 2), getMatrixElement(2, 3),
-        getMatrixElement(3, 0), getMatrixElement(3, 1), getMatrixElement(3, 2), getMatrixElement(3, 3)
+        getMatrixElement(0, 0), getMatrixElement(1, 0), getMatrixElement(2, 0), getMatrixElement(3, 0),
+        getMatrixElement(0, 1), getMatrixElement(1 ,1), getMatrixElement(2, 1), getMatrixElement(3, 1),
+        getMatrixElement(0, 2), getMatrixElement(1, 2), getMatrixElement(2, 2), getMatrixElement(3, 2),
+        getMatrixElement(0, 3), getMatrixElement(1, 3), getMatrixElement(2, 3), getMatrixElement(3, 3)
     };
 
     return result;

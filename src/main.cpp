@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/09 20:47:51 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 15:48:07 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int main()
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,8 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
     // color attribute
@@ -159,8 +159,7 @@ int main()
     glUniform1i(glGetUniformLocation(ourShader.returnID(), "texture1"), 0); // set it manually
     ourShader.setInt("texture2", 1); // or with shader class
 
-
-    renderLoop(window, ourShader, VAO);
+    renderLoop(window, ourShader, VAO, texture1, texture2);
     
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);

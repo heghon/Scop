@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:46:07 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/09 20:59:05 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 15:49:15 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
         return ;
 }
 
-void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO)
+void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned int texture1, unsigned int texture2)
 {
     while(!glfwWindowShouldClose(window))
     {
@@ -60,23 +60,37 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO)
         processInput(window);
 
         // glUseProgram(shaderProgram);
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
 
         float timeValue = glfwGetTime();
+        // cout << "sin(time value) * 360 = " << sin(timeValue) * 360 << endl;
+        // cout << "time value = " << timeValue << endl;
+
         // float greenValue = sin(timeValue) / 2.0f + 0.5f;
         // int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
         // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-        // cout << "time value = " << timeValue << endl;
-        
+
+        Matrix scaleMat(4, 4);
+        scaleMat.identification();
+        scaleMat.scalification(fabs(sin(timeValue)), fabs(cos(timeValue)), 1.0f);
+        scaleMat.displayMatrix("scaleMat");
 
         Matrix rotaMat(4, 4);
         rotaMat.identification();
-        rotaMat.Rotatification('Z', sin(timeValue));
-        rotaMat.displayMatrix("rotamat");
+        rotaMat.rotatification('Z', sin(timeValue) * 360);
+        // rotaMat.displayMatrix("rotamat");
+        
         Matrix translaMat(4, 4);
         translaMat.identification();
-        translaMat.translatification(0.5f, -0.5f, 0.0f);
+        translaMat.translatification(sin(timeValue) / 2, cos(timeValue) / 2, 0.0f);
+        // translaMat.displayMatrix("translaMat");
 
-        Matrix transfoMat = rotaMat * translaMat;
+        Matrix transfoMat = translaMat * scaleMat;
+        // transfoMat.displayMatrix("transfoMat");
 
         ourShader.use();
 
@@ -85,7 +99,7 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO)
 
         // transform matrix handling here
         unsigned int transformLoc = glGetUniformLocation(ourShader.returnID(), "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, rotaMat.toArray());
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, scaleMat.toArray());
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -93,6 +107,6 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO)
         glBindVertexArray(0);
 
         glfwSwapBuffers(window);
-        glfwPollEvents();    
+        glfwPollEvents();
     }
 }

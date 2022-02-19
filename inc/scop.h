@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:20:26 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 15:24:14 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 15:48:34 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 void glfwStart();
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 GLFWwindow* makeWindow(int width, int height);
-void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO);
+void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned int texture1, unsigned int texture2);
 
 int gladStart();
 

@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:34:51 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/09 20:07:47 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:36:43 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
     void identification();
     void scalification(float sX, float sY, float sZ);
     void translatification(float tX, float tY, float tZ);
-    void Rotatification(char rot, float angle);
+    void rotatification(char rot, float angle);
     Matrix addition(Matrix const& mat) const;
     Matrix substraction(Matrix const& mat) const;
     Matrix multiplication(Matrix const& matrix) const;
