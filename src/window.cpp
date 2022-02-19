@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:46:07 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/19 15:49:15 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:31:26 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,20 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned
         Matrix scaleMat(4, 4);
         scaleMat.identification();
         scaleMat.scalification(fabs(sin(timeValue)), fabs(cos(timeValue)), 1.0f);
-        scaleMat.displayMatrix("scaleMat");
+        // scaleMat.scalification(0.5f, 0.5f, 1.0f);
+        // scaleMat.displayMatrix("scaleMat");
+
+        // cout << "test = " << endl;
+        // for (int i = 0; i < 4; i++)
+        // {
+        //     cout << "[ ";
+        //     for (int j = 0; j < 4; j++)
+        //     {
+        //         cout << test[i + j] << ", ";
+        //     }
+        //     cout << "]" << endl;
+        // }
+        // cout << endl; 
 
         Matrix rotaMat(4, 4);
         rotaMat.identification();
@@ -89,8 +102,15 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned
         translaMat.translatification(sin(timeValue) / 2, cos(timeValue) / 2, 0.0f);
         // translaMat.displayMatrix("translaMat");
 
-        Matrix transfoMat = translaMat * scaleMat;
+        Matrix transfoMat = rotaMat * translaMat;
         // transfoMat.displayMatrix("transfoMat");
+
+        // GLfloat result[] = {
+        // transfoMat.getMatrixElement(0, 0), transfoMat.getMatrixElement(1, 0), transfoMat.getMatrixElement(2, 0), transfoMat.getMatrixElement(3, 0),
+        // transfoMat.getMatrixElement(0, 1), transfoMat.getMatrixElement(1 ,1), transfoMat.getMatrixElement(2, 1), transfoMat.getMatrixElement(3, 1),
+        // transfoMat.getMatrixElement(0, 2), transfoMat.getMatrixElement(1, 2), transfoMat.getMatrixElement(2, 2), transfoMat.getMatrixElement(3, 2),
+        // transfoMat.getMatrixElement(0, 3), transfoMat.getMatrixElement(1, 3), transfoMat.getMatrixElement(2, 3), transfoMat.getMatrixElement(3, 3)
+        // };
 
         ourShader.use();
 
@@ -99,7 +119,7 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned
 
         // transform matrix handling here
         unsigned int transformLoc = glGetUniformLocation(ourShader.returnID(), "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, scaleMat.toArray());
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, transfoMat.toArray());
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

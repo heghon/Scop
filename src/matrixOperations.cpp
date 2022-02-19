@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 13:13:59 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/09 20:04:53 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:25:47 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <cmath>
 
 using namespace std;
-
 
 Matrix matrixScaling(Matrix mat, float scale)
 {

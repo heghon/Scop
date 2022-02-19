@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:37:04 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/19 14:36:37 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:30:32 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,14 +261,35 @@ GLfloat* Matrix::toArray()
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
-    static GLfloat result[] = {
+    GLfloat result[] = {
         getMatrixElement(0, 0), getMatrixElement(1, 0), getMatrixElement(2, 0), getMatrixElement(3, 0),
         getMatrixElement(0, 1), getMatrixElement(1 ,1), getMatrixElement(2, 1), getMatrixElement(3, 1),
         getMatrixElement(0, 2), getMatrixElement(1, 2), getMatrixElement(2, 2), getMatrixElement(3, 2),
         getMatrixElement(0, 3), getMatrixElement(1, 3), getMatrixElement(2, 3), getMatrixElement(3, 3)
     };
 
-    return result;
+    GLfloat *tab = result;
+
+    // GLfloat tab[16];
+
+    // tab[0] = getMatrixElement(0, 0);
+    // tab[1] = getMatrixElement(1, 0);
+    // tab[2] = getMatrixElement(2, 0);
+    // tab[3] = getMatrixElement(3, 0);
+    // tab[4] = getMatrixElement(0, 1);
+    // tab[5] = getMatrixElement(1, 1);
+    // tab[6] = getMatrixElement(2, 1);
+    // tab[7] = getMatrixElement(3, 1);
+    // tab[8] = getMatrixElement(0, 2);
+    // tab[9] = getMatrixElement(1, 2);
+    // tab[10] = getMatrixElement(2, 2);
+    // tab[11] = getMatrixElement(3, 2);
+    // tab[12] = getMatrixElement(0, 3);
+    // tab[13] = getMatrixElement(1, 3);
+    // tab[14] = getMatrixElement(2, 3);
+    // tab[15] = getMatrixElement(3, 3);
+
+    return tab;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
