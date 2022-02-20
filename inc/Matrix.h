@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:34:51 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/19 18:29:44 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:32:30 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
     Matrix addition(Matrix const& mat) const;
     Matrix substraction(Matrix const& mat) const;
     Matrix multiplication(Matrix const& matrix) const;
-    GLfloat* toArray();
+    void toArray(GLfloat *tab);
 };
   
 #endif
