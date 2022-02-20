@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:46:07 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/20 13:42:54 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:21:11 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned
         // int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
         // glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
-        Matrix scaleMat(4, 4);
+        Matriks scaleMat(4, 4);
         scaleMat.identification();
-        scaleMat.scalification(fabs(sin(timeValue)), fabs(cos(timeValue)), 1.0f);
+        scaleMat.scalification(fabs(sin(timeValue)), fabs(sin(timeValue)), 1.0f);
         // scaleMat.scalification(0.5f, 0.5f, 1.0f);
-        // scaleMat.displayMatrix("scaleMat");
+        // scaleMat.displayMatriks("scaleMat");
 
         // cout << "test = " << endl;
         // for (int i = 0; i < 4; i++)
@@ -92,35 +92,38 @@ void renderLoop(GLFWwindow* window, Shader ourShader, unsigned int VAO, unsigned
         // }
         // cout << endl; 
 
-        Matrix rotaMat(4, 4);
+        Matriks rotaMat(4, 4);
         rotaMat.identification();
-        rotaMat.rotatification('Z', -timeValue * 50);
-        // rotaMat.displayMatrix("rotamat");
+        rotaMat.rotatification('Z', -timeValue * 100);
+        // rotaMat.displayMatriks("rotamat");
         
-        Matrix translaMat(4, 4);
+        Matriks translaMat(4, 4);
         translaMat.identification();
-        translaMat.translatification(sin(timeValue) / 2, cos(timeValue) / 2, 0.0f);
-        // translaMat.displayMatrix("translaMat");
+        translaMat.translatification(sin(timeValue * 5) / 2, cos(timeValue * 5) / 2, 0.0f);
+        // translaMat.displayMatriks("translaMat");
 
-        Matrix transfoMat = rotaMat * translaMat;
-        // transfoMat.displayMatrix("transfoMat");
+        Matriks transfoMat = translaMat * rotaMat;
+        // transfoMat.displayMatriks("transfoMat");
 
-        GLfloat result[] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+        GLfloat *result = giveMatriksList();
+
+        // GLfloat result[] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+
         // GLfloat result[] = {
-        // transfoMat.getMatrixElement(0, 0), transfoMat.getMatrixElement(1, 0), transfoMat.getMatrixElement(2, 0), transfoMat.getMatrixElement(3, 0),
-        // transfoMat.getMatrixElement(0, 1), transfoMat.getMatrixElement(1 ,1), transfoMat.getMatrixElement(2, 1), transfoMat.getMatrixElement(3, 1),
-        // transfoMat.getMatrixElement(0, 2), transfoMat.getMatrixElement(1, 2), transfoMat.getMatrixElement(2, 2), transfoMat.getMatrixElement(3, 2),
-        // transfoMat.getMatrixElement(0, 3), transfoMat.getMatrixElement(1, 3), transfoMat.getMatrixElement(2, 3), transfoMat.getMatrixElement(3, 3)
+        // transfoMat.getMatriksElement(0, 0), transfoMat.getMatriksElement(1, 0), transfoMat.getMatriksElement(2, 0), transfoMat.getMatriksElement(3, 0),
+        // transfoMat.getMatriksElement(0, 1), transfoMat.getMatriksElement(1 ,1), transfoMat.getMatriksElement(2, 1), transfoMat.getMatriksElement(3, 1),
+        // transfoMat.getMatriksElement(0, 2), transfoMat.getMatriksElement(1, 2), transfoMat.getMatriksElement(2, 2), transfoMat.getMatriksElement(3, 2),
+        // transfoMat.getMatriksElement(0, 3), transfoMat.getMatriksElement(1, 3), transfoMat.getMatriksElement(2, 3), transfoMat.getMatriksElement(3, 3)
         // };
 
-        rotaMat.toArray(result);
+        scaleMat.toArray(result);
 
         ourShader.use();
 
         // set the texture mix value in the shader
         ourShader.setFloat("mixValue", mixValue);
 
-        // transform matrix handling here
+        // transform Matriks handling here
         unsigned int transformLoc = glGetUniformLocation(ourShader.returnID(), "transform");
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, result);
 

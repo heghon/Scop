@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Matrix.cpp                                         :+:      :+:    :+:   */
+/*   Matriks.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 
 using namespace std;
 
-Matrix::Matrix(Vektor vek) : row(4), column(1)
+Matriks::Matriks(Vektor vek) : row(4), column(1)
 {
     for (int i = 0; i < row; i++)
     {
@@ -33,7 +33,7 @@ Matrix::Matrix(Vektor vek) : row(4), column(1)
     }
 }
 
-Matrix::Matrix(int i, int j) : row(i), column(j)
+Matriks::Matriks(int i, int j) : row(i), column(j)
 {
     for (int i = 0; i < row; i++)
     {
@@ -46,22 +46,22 @@ Matrix::Matrix(int i, int j) : row(i), column(j)
     }
 }
 
-float Matrix::getRow()
+float Matriks::getRow()
 {
     return row;
 }
 
-float Matrix::getColumn()
+float Matriks::getColumn()
 {
     return column;
 }
 
-float Matrix::getMatrixElement(int row, int col)
+float Matriks::getMatriksElement(int row, int col)
 {
     return mat[row][col];
 }
 
-void Matrix::setMatrixElement(string operation, int row, int col, float value)
+void Matriks::setMatriksElement(string operation, int row, int col, float value)
 {
     if (operation == "set")
     {
@@ -81,9 +81,9 @@ void Matrix::setMatrixElement(string operation, int row, int col, float value)
     }
 }
 
-void Matrix::displayMatrix(string name)
+void Matriks::displayMatriks(string name)
 {
-    cout << "Matrix " << name << " = " << endl;
+    cout << "Matriks " << name << " = " << endl;
     for (int i = 0; i < (int)mat.size(); i++)
     {
         cout << "[ ";
@@ -97,11 +97,11 @@ void Matrix::displayMatrix(string name)
     }
 }
 
-void Matrix::identification()
+void Matriks::identification()
 {
     if (row != column)
     {
-        cout << "You're trying an indentificarion on an unfit matrix (you need rows = columns)." << endl
+        cout << "You're trying an indentificarion on an unfit Matriks (you need rows = columns)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -118,11 +118,11 @@ void Matrix::identification()
     }
 }
 
-void Matrix::scalification(float sX, float sY, float sZ)
+void Matriks::scalification(float sX, float sY, float sZ)
 {
     if (row != 4 || column != 4)
     {
-        cout << "You're trying an scalification on an unfit matrix (you need 4 rows and 4 columns)." << endl
+        cout << "You're trying an scalification on an unfit Matriks (you need 4 rows and 4 columns)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -131,11 +131,11 @@ void Matrix::scalification(float sX, float sY, float sZ)
     mat[2][2] = sZ;
 }
 
-void Matrix::translatification(float tX, float tY, float tZ)
+void Matriks::translatification(float tX, float tY, float tZ)
 {
     if (row != 4 || column != 4)
     {
-        cout << "You're trying an translatification on an unfit matrix (you need 4 rows and 4 columns)." << endl
+        cout << "You're trying an translatification on an unfit Matriks (you need 4 rows and 4 columns)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -144,11 +144,11 @@ void Matrix::translatification(float tX, float tY, float tZ)
     mat[2][3] = tZ;
 }
 
-void Matrix::rotatification(char rot, float angle)
+void Matriks::rotatification(char rot, float angle)
 {
     if (row != 4 || column != 4)
     {
-        cout << "You're trying an rotatification on an unfit matrix (you need 4 rows and 4 columns)." << endl
+        cout << "You're trying an rotatification on an unfit Matriks (you need 4 rows and 4 columns)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -176,13 +176,13 @@ void Matrix::rotatification(char rot, float angle)
     }
 }
 
-Matrix Matrix::addition(Matrix const& matrix) const
+Matriks Matriks::addition(Matriks const& Matriks) const
 {
-    Matrix finalMat(row, column);
+    class Matriks finalMat(row, column);
     
-    if (row != matrix.row || column != matrix.column)
+    if (row != Matriks.row || column != Matriks.column)
     {
-        cout << "You're trying an addition between two different matrixes (row or column)." << endl
+        cout << "You're trying an addition between two different Matrikses (row or column)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -192,21 +192,21 @@ Matrix Matrix::addition(Matrix const& matrix) const
         {
             for (int j = 0; j < finalMat.getColumn(); j++)
             {
-                finalMat.setMatrixElement("addition", i, j, mat[i][j]);
-                finalMat.setMatrixElement("addition", i, j, matrix.mat[i][j]);
+                finalMat.setMatriksElement("addition", i, j, mat[i][j]);
+                finalMat.setMatriksElement("addition", i, j, Matriks.mat[i][j]);
             }
         }
     }
     return finalMat;
 }
 
-Matrix Matrix::substraction(Matrix const& matrix) const
+Matriks Matriks::substraction(Matriks const& Matriks) const
 {
-    Matrix finalMat(row, column);
+    class Matriks finalMat(row, column);
     
-    if (row != matrix.row || column != matrix.column)
+    if (row != Matriks.row || column != Matriks.column)
     {
-        cout << "You're trying an subtraction between two different matrixes (row or column)." << endl
+        cout << "You're trying an subtraction between two different Matrikses (row or column)." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -216,21 +216,21 @@ Matrix Matrix::substraction(Matrix const& matrix) const
         {
             for (int j = 0; j < finalMat.getColumn(); j++)
             {
-                finalMat.setMatrixElement("addition", i, j, mat[i][j]);
-                finalMat.setMatrixElement("subtraction", i, j, matrix.mat[i][j]);
+                finalMat.setMatriksElement("addition", i, j, mat[i][j]);
+                finalMat.setMatriksElement("subtraction", i, j, Matriks.mat[i][j]);
             }
         }
     }
     return finalMat;
 }
 
-Matrix Matrix::multiplication(Matrix const& matrix) const
+Matriks Matriks::multiplication(Matriks const& Matriks) const
 {
-    Matrix finalMat(row, matrix.column);
+    class Matriks finalMat(row, Matriks.column);
 
-    if (column != matrix.row)
+    if (column != Matriks.row)
     {
-        cout << "You're trying a multiplication between two uncompatible matrixes." << endl
+        cout << "You're trying a multiplication between two uncompatible Matrikses." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
@@ -244,50 +244,50 @@ Matrix Matrix::multiplication(Matrix const& matrix) const
 
                 for (int k = 0; k < column; k++)
                 {
-                    element += mat[i][k] * matrix.mat[k][j];
+                    element += mat[i][k] * Matriks.mat[k][j];
                 }
-                finalMat.setMatrixElement("set", i, j, element);
+                finalMat.setMatriksElement("set", i, j, element);
             }
         }
     }
     return finalMat;
 }
 
-void Matrix::toArray(GLfloat *tab)
+void Matriks::toArray(GLfloat *tab)
 {
     if (row != 4 || column != 4)
     {
-        cout << "You're trying to make an array with a matrix that is not 4 x 4." << endl
+        cout << "You're trying to make an array with a Matriks that is not 4 x 4." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
     // GLfloat result[] = {
-    //     getMatrixElement(0, 0), getMatrixElement(1, 0), getMatrixElement(2, 0), getMatrixElement(3, 0),
-    //     getMatrixElement(0, 1), getMatrixElement(1 ,1), getMatrixElement(2, 1), getMatrixElement(3, 1),
-    //     getMatrixElement(0, 2), getMatrixElement(1, 2), getMatrixElement(2, 2), getMatrixElement(3, 2),
-    //     getMatrixElement(0, 3), getMatrixElement(1, 3), getMatrixElement(2, 3), getMatrixElement(3, 3)
+    //     getMatriksElement(0, 0), getMatriksElement(1, 0), getMatriksElement(2, 0), getMatriksElement(3, 0),
+    //     getMatriksElement(0, 1), getMatriksElement(1 ,1), getMatriksElement(2, 1), getMatriksElement(3, 1),
+    //     getMatriksElement(0, 2), getMatriksElement(1, 2), getMatriksElement(2, 2), getMatriksElement(3, 2),
+    //     getMatriksElement(0, 3), getMatriksElement(1, 3), getMatriksElement(2, 3), getMatriksElement(3, 3)
     // };
 
     // GLfloat *tab = result;
 
     // GLfloat tab[16];
 
-    tab[0] = getMatrixElement(0, 0);
-    tab[1] = getMatrixElement(1, 0);
-    tab[2] = getMatrixElement(2, 0);
-    tab[3] = getMatrixElement(3, 0);
-    tab[4] = getMatrixElement(0, 1);
-    tab[5] = getMatrixElement(1, 1);
-    tab[6] = getMatrixElement(2, 1);
-    tab[7] = getMatrixElement(3, 1);
-    tab[8] = getMatrixElement(0, 2);
-    tab[9] = getMatrixElement(1, 2);
-    tab[10] = getMatrixElement(2, 2);
-    tab[11] = getMatrixElement(3, 2);
-    tab[12] = getMatrixElement(0, 3);
-    tab[13] = getMatrixElement(1, 3);
-    tab[14] = getMatrixElement(2, 3);
-    tab[15] = getMatrixElement(3, 3);
+    tab[0] = getMatriksElement(0, 0);
+    tab[1] = getMatriksElement(1, 0);
+    tab[2] = getMatriksElement(2, 0);
+    tab[3] = getMatriksElement(3, 0);
+    tab[4] = getMatriksElement(0, 1);
+    tab[5] = getMatriksElement(1, 1);
+    tab[6] = getMatriksElement(2, 1);
+    tab[7] = getMatriksElement(3, 1);
+    tab[8] = getMatriksElement(0, 2);
+    tab[9] = getMatriksElement(1, 2);
+    tab[10] = getMatriksElement(2, 2);
+    tab[11] = getMatriksElement(3, 2);
+    tab[12] = getMatriksElement(0, 3);
+    tab[13] = getMatriksElement(1, 3);
+    tab[14] = getMatriksElement(2, 3);
+    tab[15] = getMatriksElement(3, 3);
 
     // return tab;
 }
@@ -296,23 +296,23 @@ void Matrix::toArray(GLfloat *tab)
 //  END OF THE CLASS FUNCTIONS
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Matrix operator+(Matrix const& mat1, Matrix const& mat2)
+Matriks operator+(Matriks const& mat1, Matriks const& mat2)
 {
-    Matrix result = mat1.addition(mat2);
+    Matriks result = mat1.addition(mat2);
 
     return result;
 }
 
-Matrix operator-(Matrix const& mat1, Matrix const& mat2)
+Matriks operator-(Matriks const& mat1, Matriks const& mat2)
 {
-    Matrix result = mat1.substraction(mat2);
+    Matriks result = mat1.substraction(mat2);
 
     return result;
 }
 
-Matrix operator*(Matrix const& mat1, Matrix const& mat2)
+Matriks operator*(Matriks const& mat1, Matriks const& mat2)
 {
-    Matrix result = mat1.multiplication(mat2);
+    Matriks result = mat1.multiplication(mat2);
 
     return result;
 }

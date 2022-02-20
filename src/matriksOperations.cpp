@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MatrixOperations.cpp                               :+:      :+:    :+:   */
+/*   matriksOperations.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 13:13:59 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/19 18:25:47 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:22:34 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Matrix.h"
+#include "../inc/Matriks.h"
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
-Matrix matrixScaling(Matrix mat, float scale)
+GLfloat *giveMatriksList()
 {
-    Matrix finalMat(mat.getRow(), mat.getColumn());
+    static GLfloat tab[] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+    
+    return tab;
+}
+
+Matriks MatriksScaling(Matriks mat, float scale)
+{
+    Matriks finalMat(mat.getRow(), mat.getColumn());
 
     for (int i = 0; i < finalMat.getRow(); i++)
     {
         for (int j = 0; j < finalMat.getColumn(); j++)
         {
-            finalMat.setMatrixElement("addition", i, j, mat.getMatrixElement(i, j));
-            finalMat.setMatrixElement("multiplication", i, j, scale);
+            finalMat.setMatriksElement("addition", i, j, mat.getMatriksElement(i, j));
+            finalMat.setMatriksElement("multiplication", i, j, scale);
         }
     }
     return finalMat;

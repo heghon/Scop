@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:06:32 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 15:27:13 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:23:05 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ Vektor::Vektor() : X(0.0f), Y (0.0f), Z(0.0f), W(1.0f), length(sqrtf((X * X) + (
 {
 }
 
-Vektor::Vektor(Matrix matrix) 
+Vektor::Vektor(Matriks Matriks) 
 {
-    if (matrix.getRow() != 4 || matrix.getColumn() != 1)
+    if (Matriks.getRow() != 4 || Matriks.getColumn() != 1)
     {
-        cout << "You're trying to change an unfit matrixe as a vektor." << endl
+        cout << "You're trying to change an unfit Matrikse as a vektor." << endl
             << "I can't make that operation, please look at the function call." << endl;
         exit(0);
     }
-    X = matrix.getMatrixElement(0, 0);
-    Y = matrix.getMatrixElement(1, 0);
-    Z = matrix.getMatrixElement(2, 0);
-    W = matrix.getMatrixElement(3, 0);
+    X = Matriks.getMatriksElement(0, 0);
+    Y = Matriks.getMatriksElement(1, 0);
+    Z = Matriks.getMatriksElement(2, 0);
+    W = Matriks.getMatriksElement(3, 0);
     length = sqrtf((X * X) + (Y * Y) + (Z * Z));
 }
 

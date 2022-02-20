@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:19:15 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/19 15:48:07 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:19:09 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int main()
 {
     glfwStart();
 
-    // Matrix rotaMat(4, 4);
+    // Matriks rotaMat(4, 4);
     // rotaMat.identification();
     // rotaMat.Rotatification('Z', (float)((int)glfwGetTime() % 360));
 
-    // Matrix translaMat(4, 4);
+    // Matriks translaMat(4, 4);
     // translaMat.identification();
     // translaMat.translatification(0.5f, -0.5f, 0.0f);
 
-    // Matrix transfoMat = rotaMat * translaMat;
-    // transfoMat.displayMatrix("transfoMat");
+    // Matriks transfoMat = rotaMat * translaMat;
+    // transfoMat.displayMatriks("transfoMat");
 
     GLFWwindow* window = makeWindow(SCREEN_WIDTH,SCREEN_HEIGHT);
     if (window == NULL || gladStart() == -1)

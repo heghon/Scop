@@ -6,7 +6,7 @@
 /*   By: bmenant <bmenant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:10:28 by bmenant           #+#    #+#             */
-/*   Updated: 2022/02/05 15:30:09 by bmenant          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:22:54 by bmenant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 
-class Matrix;
+class Matriks;
 
 class Vektor
 {
@@ -30,7 +30,7 @@ private:
 public:
 
     Vektor();
-    Vektor(Matrix matrix);
+    Vektor(Matriks Matriks);
     Vektor(float x, float y, float z, float w);
     float getX();
     float getY();
